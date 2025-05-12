@@ -8,7 +8,7 @@ def classify_input(message):
             {
                 "role": "system",
                 "content": """
-                        Your task is to classify if the user message is related to buildings and architecture or not.
+                        Your task is to classify if the user message is related to co-living, buildings and architecture or not.
                         Output only the classification string.
                         If it is related, output "Related", if not, output "Refuse to answer".
 
@@ -39,7 +39,7 @@ def generate_concept(message):
                 "role": "system",
                 "content": """
                         You are a visionary intern at a leading architecture firm.
-                        Your task is to craft a short, poetic, and highly imaginative concept for a building design.
+                        Your task is to craft a short, poetic, and highly imaginative concept for a co-living building design.
                         Weave the initial information naturally into your idea, letting it inspire creative associations and unexpected imagery.
                         Your concept should feel bold, evocative, and memorable — like the opening lines of a story.
                         Keep your response to a maximum of one paragraph.
@@ -67,12 +67,12 @@ def extract_attributes(message):
 
                         # Instructions #
                         You are a keyword extraction assistant.
-                        Your task is to read a given text and extract relevant keywords according to three categories: shape, theme, and materials.
+                        Your task is to read a given text and extract relevant keywords according to three categories: spatial_features, lifestyle_themes, and target_users.
                         Only output a JSON object in the following format:
                         {
-                            "shape": "keyword1, keyword2",
-                            "theme": "keyword3, keyword4",
-                            "materials": "keyword5, keyword6"
+                            "spatial_features": "keyword1, keyword2",
+                            "lifestyle_themes": "keyword3, keyword4",
+                            "target_users": "keyword5, keyword6"
                         }
 
                         # Rules #
@@ -83,9 +83,9 @@ def extract_attributes(message):
                         Do not try to format the json output with characters like ```json
 
                         # Category guidelines #
-                        Shape: Words that describe form, geometry, structure (e.g., circle, rectangular, twisting, modular).
-                        Theme: Words related to the overall idea, feeling, or concept (e.g., minimalism, nature, industrial, cozy).
-                        Materials: Specific physical materials mentioned (e.g., wood, concrete, glass, steel).
+                        Spatial Features: Types of spaces, layout qualities, or design elements (e.g., shared kitchen, private pod, coworking zone).
+                        Lifestyle Themes: Ideas or values related to how people live or interact (e.g., community, flexibility, sustainability, work-life balance).
+                        Target Users: Specific groups the space is designed for (e.g., digital nomads, students, freelancers, remote workers).
                         """,
             },
             {
@@ -108,19 +108,19 @@ def create_question(message):
                 "role": "system",
                 "content": """
                         # Instruction #
-                        You are a thoughtful research assistant specializing in architecture.
+                        You are a thoughtful research assistant specializing in contemporary housing trends.
                         Your task is to create an open-ended question based on the given text.
-                        Your question should invite an answer that points to references to specific brutalist buildings or notable examples.
-                        Imagine the question will be answered using a detailed text about brutalist architecture.
+                        Your question should invite an answer that refers to specific co-living projects, housing models, or social experiments.
+                        Imagine the question will be answered using a detailed text about co-living and shared housing.
                         The question should feel exploratory and intellectually curious.
                         Output only the question, without any extra text.
 
                         # Examples #
-                        - What are some brutalist buildings that embody a strong relationship with the landscape?
-                        - Which brutalist structures are known for their monumental scale and raw materiality?
-                        - Can you name brutalist buildings that incorporate unexpected geometries or playful spatial compositions?
-                        - What are examples of brutalist projects that explore the idea of community or collective living?
-                        - Which architects pushed the limits of brutalist design through experimental forms?
+                        - What are some notable co-living projects that successfully balance privacy and community?
+                        - How have co-living spaces evolved to support the changing lifestyles of young professionals?
+                        - Which co-living models address both affordability and social connection in urban environments?
+                        - What examples exist of co-living developments that integrate workspaces into residential settings?
+                        - How do different co-living initiatives reinterpret traditional ideas of home and domestic life?
 
                         # Important #
                         Keep the question open-ended, inviting multiple references or examples.
